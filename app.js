@@ -43,6 +43,17 @@ app.post("/articles", function(req, res) {
     });
 });
 
+app.delete("/articles", function(req, res) {
+    Article.deleteMany(function(err) {
+        if (!err) {
+            res.send("Successfuly deleted the articles!");            
+        }
+        else {
+            res.send("Error!!");
+        }
+    });
+});
+
 app.listen(3000, function(err) {
     if (err) {
         console.log("Error!");
